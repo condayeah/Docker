@@ -42,9 +42,6 @@ yum update -y
 yum install -y which
 yum install -y java-11-openjdk.x86_64
 yum install -y java-11-openjdk-devel.x86_64
-yum install -y java-1.6.0-openjdk.x86_64
-yum install -y java-1.6.0-devel.x86_64
-alternatives --config java -> 1 엔터 (11버전 선택)
 readlink /usr/bin/javac -f -> 끝에 bin/javac 제외하고 복사(/usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64)
 vi /etc/profile
 export JAVA_HOME = /usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64 끝에 붙여넣기
@@ -78,8 +75,6 @@ yum update -y
 yum install -y which
 yum install -y java-11-openjdk.x86_64
 yum install -y java-11-openjdk-devel.x86_64
-yum install -y java-1.6.0-openjdk.x86_64
-yum install -y java-1.6.0-devel.x86_64
 yum install -y wget
 wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
@@ -90,7 +85,6 @@ systemctl start jenkins
 
 vi /etc/ssh/sshd_config -> PermitRootLogin yes 주석 삭제
 passwd root -> 비밀번호 설정
-alternatives --config java -> 1 엔터 (11버전 선택)
 readlink /usr/bin/javac -f -> 끝에 bin/javac 제외하고 복사(/usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64)
 vi /etc/profile
 export JAVA_HOME = /usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64 끝에 붙여넣기
