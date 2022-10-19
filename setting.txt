@@ -52,6 +52,7 @@ wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenki
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 yum install -y epel-release
 yum install -y jenkins
+yum install -y git
 systemctl enable jenkins
 systemctl start jenkins
 cat /var/lib/jenkins/secrets/initialAdminPassword -> 초기 비밀번호 복붙 
