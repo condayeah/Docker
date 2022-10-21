@@ -46,6 +46,11 @@ yum install -y java-1.6.0-openjdk.x86_64
 yum install -y java-1.6.0-openjdk-devel.x86_64
 alternatives --config java 엔터 후 1 엔터(java11선택)
 readlink /usr/bin/javac -f -> 끝에 bin/javac 제외하고 복사(/usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64)
+java --version
+javac -version
+둘 차이 나면 11로 수정
+unlink /etc/alternatives/javac
+ln -s /usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64/bin/java /etc/alternatives/javac
 vi /etc/profile
 export JAVA_HOME = /usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64 끝에 붙여넣기
 
@@ -95,6 +100,11 @@ readlink /usr/bin/javac -f -> 끝에 bin/javac 제외하고 복사(/usr/lib/jvm/
 vi /etc/profile
 alternatives --config java 엔터 후 1 엔터(java11선택)
 export JAVA_HOME = /usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64 끝에 붙여넣기
+java --version
+javac -version
+둘 차이 나면 11로 수정
+unlink /etc/alternatives/javac
+ln -s /usr/lib/jvm/java-11-openjdk-11.0.16.1.1-1.el7_9.x86_64/bin/java /etc/alternatives/javac
 cat /var/lib/jenkins/secrets/initialAdminPassword -> 초기 비밀번호 복붙 
 localhost:8080 접속해서 비밀번호 입력
 install suggested plugins
