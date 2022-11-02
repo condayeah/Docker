@@ -61,6 +61,7 @@ rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 yum install -y epel-release
 yum install -y jenkins
 yum install -y git
+timedatectl set-timezone Asia/Seoul
 vi /etc/sysconfig/jenkins JENKINS_PORT="8888"
 /usr/lib/systemd/system/jenkins.service Environment="JENKINS_PORT=8888"
 systemctl enable jenkins
@@ -93,6 +94,7 @@ wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenki
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 yum install -y epel-release
 yum install -y jenkins
+timedatectl set-timezone Asia/Seoul
 systemctl enable jenkins
 systemctl start jenkins
 
@@ -140,6 +142,7 @@ systemctl start sshd
 
 4. 기초 프로그램 설치
 yum update -y
+timedatectl set-timezone Asia/Seoul
 yum install -y which
 yum install -y curl policycoreutils-python
 
@@ -168,6 +171,7 @@ yum install -y openssh-server.x86_64
 systemctl enable sshd
 systemctl start sshd
 yum update -y
+timedatectl set-timezone Asia/Seoul
 yum install -y which
 yum install -y curl policycoreutils-python
 yum install -y git
