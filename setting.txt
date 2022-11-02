@@ -19,14 +19,14 @@ docker pull centos:7
 *jenkins
 
 1. 도커 실행
-docker run -itd --name jenkins -v D:\jenkins:/host --privileged --restart always -p 8080:8080 -p 2222:22 centos:7 sbin/init
+docker run -itd --name jenkins -v D:\jenkins:/host --privileged --restart always -p 8888:8888 -p 2222:22 centos:7 sbin/init
 docker exec -it jenkins bin/bash
 
 2. 방화벽 설정
 yum install -y firewalld 
 systemctl enable firewalld
 systemctl start firewalld
-firewall-cmd --permanent --zone=public --add-port=8080/tcp
+firewall-cmd --permanent --zone=public --add-port=8888/tcp
 firewall-cmd --permanent --zone=public --add-port=22/tcp
 firewall-cmd --reload
 
@@ -61,6 +61,8 @@ rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 yum install -y epel-release
 yum install -y jenkins
 yum install -y git
+vi /etc/sysconfig/jenkins JENKINS_PORT="8888"
+/usr/lib/systemd/system/jenkins.service Environment="JENKINS_PORT=8888"
 systemctl enable jenkins
 systemctl start jenkins
 cat /var/lib/jenkins/secrets/initialAdminPassword -> 초기 비밀번호 복붙 
